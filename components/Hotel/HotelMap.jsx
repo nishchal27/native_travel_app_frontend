@@ -18,8 +18,9 @@ const HotelMap = ({ coordinates }) => {
     )
   }
   return (
-      <MapView style={styles.maps} initialRegion={initial}>
-        <Marker coordinate={coordinates} title={undefined ? coordinates.name : "Hotel Destination"} />
+    //here I have made some changes in the mapView and Marker
+      <MapView style={styles.maps} initialRegion={coordinates || initial}>
+        <Marker coordinate={coordinates} title={undefined ?  "Hotel Destination" : coordinates?.name} />
       </MapView>
   );
 };
