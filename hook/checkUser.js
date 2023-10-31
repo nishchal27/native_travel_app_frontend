@@ -37,7 +37,7 @@ const checkUser = () => {
     
             try {
               const response = await axios.get(
-                'nativetravelappbackend-production.up.railway.app/api/users',
+                'https://nativetravelappbackend-production.up.railway.app/api/users',
                 {
                   headers: {
                     Authorization: `Bearer ${accessToken}`,

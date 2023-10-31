@@ -11,7 +11,7 @@ const fetchHotelsByCountry = (id) => {
         setIsLoading(true)
 
         try {
-            const response = await axios.get(`nativetravelappbackend-production.up.railway.app/api/hotels/byCountry/${id}?limit=all`);
+            const response = await axios.get(`https://nativetravelappbackend-production.up.railway.app/api/hotels/byCountry/${id}?limit=all`);
             console.log(response.data);
             setPlace(response.data.hotels)
             setIsLoading(false)

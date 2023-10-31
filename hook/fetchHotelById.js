@@ -12,7 +12,7 @@ const fetchHotelById = (id) => {
         setIsLoading(true)
 
         try {
-            const response = await axios.get(`nativetravelappbackend-production.up.railway.app/api/hotels/${id}`);
+            const response = await axios.get(`https://nativetravelappbackend-production.up.railway.app/api/hotels/${id}`);
 
             setHotel(response.data)
             const newData = response.data.coordinates;

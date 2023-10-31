@@ -22,7 +22,7 @@ const HotelSearch = ({navigation}) => {
   
   const handleSearch = async() =>{
     try {
-      const response = await axios.get(`nativetravelappbackend-production.up.railway.app/api/hotels/search/${searchKey}`)
+      const response = await axios.get(`https://nativetravelappbackend-production.up.railway.app/api/hotels/search/${searchKey}`)
       setSearchResults(response.data)
     } catch (error) {
       console.log("Failed to get products" , error);

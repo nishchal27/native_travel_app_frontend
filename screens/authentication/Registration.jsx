@@ -46,7 +46,7 @@ const Registration = () => {
     setLoader(true);
 
     try {
-      const endpoint = "nativetravelappbackend-production.up.railway.app/api/register";
+      const endpoint = "https://nativetravelappbackend-production.up.railway.app/api/register";
       const data = values;
 
       const response = await axios.post(endpoint, data);

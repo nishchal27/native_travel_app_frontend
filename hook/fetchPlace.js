@@ -11,7 +11,7 @@ const fetchPlace = (id) => {
         setIsLoading(true)
 
         try {
-            const response = await axios.get(`nativetravelappbackend-production.up.railway.app/api/places/${id}`);
+            const response = await axios.get(`https://nativetravelappbackend-production.up.railway.app/api/places/${id}`);
 
             setPlace(response.data.place)
             setIsLoading(false)

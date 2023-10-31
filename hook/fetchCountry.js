@@ -11,7 +11,7 @@ const fetchCountry = (id) => {
         setIsLoading(true)
 
         try {
-            const response = await axios.get(`nativetravelappbackend-production.up.railway.app/api/countries/${id}`);
+            const response = await axios.get(`https://nativetravelappbackend-production.up.railway.app/api/countries/${id}`);
 
             setCountry(response.data)
             setIsLoading(false)
