@@ -20,7 +20,6 @@ const tabBarStyle = {
 };
 
 const BottomTabNavigation = () => {
-
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -64,6 +63,8 @@ const BottomTabNavigation = () => {
         }}
       />
 
+      {/* this is a chat section with chat icon, but add
+       rating and review here tyo show something*/}
       <Tab.Screen
         name="Chat"
         component={Chat}
@@ -73,7 +74,9 @@ const BottomTabNavigation = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name={focused ? "chatbubble-ellipses" : "chatbubble-ellipses-outline"}
+              name={
+                focused ? "chatbubble-ellipses" : "chatbubble-ellipses-outline"
+              }
               color={focused ? COLORS.red : COLORS.gray}
               size={26}
             />
