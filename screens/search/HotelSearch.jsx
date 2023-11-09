@@ -16,33 +16,41 @@ import { AppBar, HeightSpacer } from "../../components";
 import HotelCard from "../../components/Tiles/Hotels/HotelCard";
 import axios from "axios";
 
-const HotelSearch = ({navigation}) => {
-  const [searchKey, setSearchKey] = useState('')
-  const [searchResults, setSearchResults] = useState([])
-  
-  const handleSearch = async() =>{
+/**
+ * Renders a hotel search screen.
+ *
+ * @param {Object} navigation - The navigation object used for navigating between screens.
+ * @return {JSX.Element} The rendered hotel search screen.
+ */
+const HotelSearch = ({ navigation }) => {
+  const [searchKey, setSearchKey] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async () => {
     try {
-      const response = await axios.get(`https://nativetravelappbackend-production.up.railway.app/api/hotels/search/${searchKey}`)
-      setSearchResults(response.data)
+      const response = await axios.get(
+        `https://nativetravelappbackend-production.up.railway.app/api/hotels/search/${searchKey}`
+      );
+      setSearchResults(response.data);
     } catch (error) {
-      console.log("Failed to get products" , error);
+      console.log("Failed to get products", error);
     }
   };
 
   return (
-    <SafeAreaView >
-      <View style={{height: 50}}>
-      <AppBar
-        top={10}
-        left={20}
-        right={20}
-        title={'Look for hotels'}
-        color={COLORS.white}
-        icon={"filter"}
-        color1={COLORS.white}
-        onPress={() => navigation.goBack()}
-        onPress1={() => {}}
-      />
+    <SafeAreaView>
+      <View style={{ height: 50 }}>
+        <AppBar
+          top={10}
+          left={20}
+          right={20}
+          title={"Look for hotels"}
+          color={COLORS.white}
+          icon={"filter"}
+          color1={COLORS.white}
+          onPress={() => navigation.goBack()}
+          onPress1={() => {}}
+        />
       </View>
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
@@ -68,21 +76,23 @@ const HotelSearch = ({navigation}) => {
           />
         </View>
       ) : (
-         <View style={{paddingLeft: 12}}>
-           <FlatList
-          data={searchResults}
-          keyExtractor={(item) => item._id}
-          numColumns={2}
-          ItemSeparatorComponent={()=> (<View style={{height: 16}}/>)}
-          renderItem={({ item }) => (
-            <HotelCard
-              item={item}
-              margin={10}
-              onPress={() => navigation.navigate("HotelDetails", item._id)}
-            />
-          )}
-        />
-         </View>
+        <View style={{ paddingLeft: 12 }}>
+          {/* here searchResults?.hotels added to work properly with in sync
+           mongodb search functions and data returns */}
+          <FlatList
+            data={searchResults?.hotels}
+            keyExtractor={(item) => item._id}
+            numColumns={2}
+            ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+            renderItem={({ item }) => (
+              <HotelCard
+                item={item}
+                margin={10}
+                onPress={() => navigation.navigate("HotelDetails", item._id)}
+              />
+            )}
+          />
+        </View>
       )}
     </SafeAreaView>
   );

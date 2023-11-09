@@ -7,8 +7,8 @@ const Location = () => {
   const {location, errorMsg} = fetchUserLocation();
   
   const coordinates = {
-    latitude: 35.6855,
-    longitude: 139.68884,  
+    latitude: 19.0760,
+    longitude: 72.8777,  
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     title: "My Location"

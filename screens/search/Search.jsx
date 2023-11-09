@@ -61,7 +61,7 @@ const Search = ({navigation}) => {
       </View>
     ): (
       <FlatList 
-      data={searchResults}
+      data={searchResults?.places}
       keyExtractor={(item)=> item._id}
       renderItem={({item})=> (
         <View style={styles.tile}>
